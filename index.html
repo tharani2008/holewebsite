@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Goalf</title>
+<style>
+	body{font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"}
+	
+	
+	.navigationbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 60px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 1000;
+    }
+    .navigationbar ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .navigationbar li {
+        margin: 0 20px;
+    }
+    .navigationbar a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .navigationbar a:hover {
+        color: gold;
+    }
+     .language-select {
+            float: right; /* Align the dropdown to the right */
+		 margin: 12px 16px;}
+	
+	 .picture {
+        position: relative;
+        height: 600px;
+        background-image: url("golfing-cmb-shangri-1.jpg");
+        background-size: cover;
+        background-position: center;
+		 margin-top: 60px;}
+	
+   
+       .welcome-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+        }
+
+        .welcome-box h2 {
+            font-size: 36px;
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .welcome-box p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+	.text1{height:300px;background-color:white;font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";text-align: center;font-size: 25px;padding-top:60px;}
+	.pictures1{height: 400px;background: white;display: flex;justify-content: space-around;MARGIN-TOP:20PX;}
+	.box1{height: 450px;width:45%;background-image:url("R (4).jpg");background-size: cover;}
+	.box2{height: 350px;width:45%;background-size: cover; }
+	.box3{height: 200px;width:200px;background: #CFCFCF;border-radius: 100px}
+	.box4{height: 200px;width:200px;background: #CFCFCF;border-radius: 100px}
+	.box5{height: 200px;width:200px;background: #CFCFCF;border-radius: 100px}
+	.text2{height:200px;background-color: #C0C0C0}
+    .text3{height:100px;background-color: #C0C0C0}
+	.boxes{height: 300px;background: #D8D8D8}
+	.boxess{display: flex;flex-direction: row;justify-content: space-around;margin-top:30px;}
+	.b1{height: 450px;width:450px;background: #CFCFCF;background-image:url("4403979900000578-0-image-a-66_15048193975901233.jpg");background-size:cover;}
+	.b2{height: 450px;width:450px;background: #CFCFCF;background-image:url("Victoria-Golf-Country-Resort-02.webp");background-size: cover}
+	
+	.boxess{display: flex;flex-direction: row;justify-content: space-around;margin-top:30px;}
+	.b3{height: 450px;width:450px;background: #CFCFCF;background-image: url("98-acres-resort.jpg");background-size: cover;}
+	.b4{height: 450px;width:450px;background: #CFCFCF;background-image:url("../../Downloads/Shangri-La-Lobby-March10-1024x611.jpg");background-size: cover;}
+	.text 4 {height: 100px; background-color:#C0C0C0 ;}
+	
+	
+	 .events {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .events h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .event {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 300px;
+        }
+	.footer {
+        height: 200px;
+        background:#5C5F7A;
+        text-align: center;
+        margin-top: 20px;
+		
+		
+    }
+	ul{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			list-style-type: none;
+			padding-top:20px;
+		}
+		a{
+			color:white;
+			text-decoration-line: none;
+		}
+	.text4{
+		position:relative;
+		left:45%;
+		top:30px;
+		font-size: 30px;
+
+
+	}
+	.box6
+	{
+		width:800px;
+		height:250px;
+		position: absolute;
+		left:270px;
+		top:300px;
+		background-color: rgba(158, 158, 158, 0.5); 
+	}
+	.text7{
+		position: relative;
+		text-align: center;
+		top:100px;
+		left:30px;
+	}
+	.text8{
+		position: relative;
+		top:120px;
+		left:30px;
+	}
+	.box7{
+		height: 400px;
+		width: 800px;
+		background: #787676;
+		opacity: 0.5;
+		position: relative;
+		left: 250px;
+		top:150px;
+	}
+	.text10{
+		position: relative;
+		left:500px;
+		top:100px;
+
+	}
+	.navigationbar input[type=text] {
+  margin-top:-10px;
+  padding: 6px;
+		margin-left:600px;
+  border: none;
+  font-size: 15px;
+}
+	.text12{height: 100px;margin-top:100px;margin-bottom:-60px;}
+	
+	.text11{height: 100px;margin-top: 100px;margin-bottom:-50px;}
+	
+.en {
+}
+</style>
+</head>
+ 
+<body>
+
+<div class="navigationbar"><ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="instructors.html">FACILITIES</a></li>	
+<li><a href="classes.html">PACKAGES</a></li>
+<li><a href="timetable.html">CONTACT US</a></li>
+	<li><a href="language.html">SELECT LANGUAGE</a></li>
+
+<li><input type="text" placeholder="Search.."></li>
+</ul>
+</div>
+	
+	  <div class="language-select">
+            <label for="languages">Select Language:</label>
+            <select class="en" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="si">Sinhala</option>
+                <option value="ta">Tamil</option>
+                <!-- Add more languages as needed -->
+            </select>
+    
+	</div>
+<div class="picture">  
+<div class="welcome-box">
+        <h2>Welcome to the Hole Golf Resort</h2>
+        <p>Your premier destination for luxury and relaxation, where every detail is crafted for your comfort.</p>
+    </div>
+</div>
+<div class="text1">
+	
+<p style="font-size:40px;"> <strong> Welcome</strong> <strong>to</strong> <strong>Hole</strong> <strong>Golf</strong> <strong>Resort</strong>,</p> 
+  <p>the premier destination in Sri Lanka for distinguished golfers enthusiats. <br>
+	  <br>
+	  Expeiance world-class facilities, stunning landscapes with blend of luxury and sport.<br>
+	  <br>
+	  Discover pure luxury at our 5-Star Golf Resort and Hotel in <strong>Nuwaraeliya</strong>, <strong>Sri Lanka. </strong> </p>
+</div>
+	
+<div class="pictures1">
+<div class="box1"></div>	
+<div class="box2"><div class="text8">Discover pure luxury at our 5-Star Golf Resort and Hotel in Abu Dhabi
+    Abu Dhabi Golf Resort</div>	
+	
+</div>
+	</div>
+	
+	<div class="text11"><center>SPECIAL OFFERS </center></div>
+	
+	<div class="boxess">
+	
+	
+        <div class="b1">
+			</div>	
+	 
+		<div class="b2">		
+		</div>	
+		
+	</div>
+	
+	<div class= "text12"> <center>ACCOMODATION</center> </div>
+	
+	
+	<div class= "boxess 2 "	>
+	
+		<div class="b3">
+		
+		</div>	
+	
+		 <div class="b4">
+		
+		</div>	
+	</div>
+	<div class="events">
+    <h3>Upcoming Events</h3>
+    <div class="event">
+        <p><strong>Annual Golf Tournament</strong><br>December 10, 2024</p>
+    </div>
+    <div class="event">
+        <p><strong>Winter Special Golf Clinics</strong><br>January 15-20, 2025</p>
+    </div>
+</div>
+
+	<div class="footer">
+    <p>&copy; 2024 Hole Golf Resort. All rights reserved.</p>
+    <p>Contact us: info@golfresort.com | Follow us on social media</p>
+    <div>
+        <a href="#" style="color: white; margin: 0 10px;">Facebook</a>
+        <a href="#" style="color: white; margin: 0 10px;">Instagram</a>
+        <a href="#" style="color: white; margin: 0 10px;">Twitter</a>
+    </div>
+	</div>
+</body>
+</html>
+
+

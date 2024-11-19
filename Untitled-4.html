@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hole Golf Resort - Dining</title>
+    <style>
+        /* Global Styles */
+        body, h1, h2, h3, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        body {
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(145deg, #222, #444);
+            color: #fff;
+            position: relative;
+        }
+
+        .navigationbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .navigationbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigationbar ul li a {
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navigationbar ul li a:hover {
+            color: #4CAF50;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown a:hover {
+            background-color: #f2f2f2;
+            color: #4CAF50;
+        }
+
+        .navigationbar ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            background: url("dining-hero.jpg") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 60px;
+            height: 400px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Dining Options Section */
+        .dining-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .dining-card {
+            background-color: #fff;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .dining-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .dining-card h3 {
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+
+        .dining-card p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+
+        .dining-card .price {
+            font-size: 1.2em;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .dining-card .book-now-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .dining-card .book-now-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Sri Lankan Dishes Section */
+        .sri-lankan-dishes {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .sri-lankan-dishes h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .dish-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .dish-item {
+            width: 280px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .dish-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .dish-item h3 {
+            font-size: 1.6em;
+            margin: 15px 0;
+        }
+
+        .dish-item p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            padding: 0 15px;
+        }
+
+        /* Booking Form */
+        .booking-form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 600px;
+        }
+
+        form label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 24px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Buttons Styling */
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #e53935;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background-color: #4CAF50;
+            color: whitesmoke;
+        }
+        footer a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigationbar">
+            <div class="logo">
+                <img src="copy.png" width="42px" alt="Hole Golf Resort Logo">
+            </div>
+            <ul>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="about.html">Facilities</a>
+                    <div class="dropdown">
+                        <a href="accommadations.html">Accommodations</a>
+                        <a href="dining.html">Dining</a>
+                    </div>
+                </li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="us.html">About Us</a></li>
+                <li><a href="srilanka.html">Sri Lanka</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Dining Experience at Hole Golf Resort</h2>
+            <p>Enjoy delicious meals from world-class restaurants and savor the flavors of Sri Lanka.</p>
+        </section>
+
+        <!-- Dining Options Section -->
+        <section class="dining-container">
+            <div class="dining-card">
+                <img src="restaurant1.jpg" alt="Golf Course Grill">
+                <h3>The Golf Course Grill</h3>
+                <p>A perfect spot to enjoy a hearty meal with a view of the golf course.</p>
+                <p class="price">$40 per person</p>
+                <button class="book-now-btn">Reserve a Table</button>
+            </div>
+            <div class="dining-card">
+                <img src="restaurant2.jpg" alt="The Green Room">
+                <h3>The Green Room</h3>
+                <p>A sophisticated dining experience with a selection of gourmet dishes.</p>
+                <p class="price">$50 per person</p>
+                <button class="book-now-btn">Reserve a Table</button>
+            </div>
+            <div class="dining-card">
+                <img src="restaurant3.jpg" alt="Hole Café">
+                <h3>Hole Café</h3>
+                <p>A cozy café serving freshly brewed coffee, pastries, and light snacks.</p>
+                <p class="price">$20 per person</p>
+                <button class="book-now-btn">Reserve a Table</button>
+            </div>
+        </section>
+
+        <!-- Sri Lankan Dishes Section -->
+        <section class="sri-lankan-dishes">
+            <h2>Sri Lankan Culinary Delights</h2>
+            <p>Indulge in some of Sri Lanka's most famous and flavorful dishes, made with fresh local ingredients. Experience a blend of spices and flavors that reflect the island's rich culinary heritage.</p>
+            <div class="dish-list">
+                <div class="dish-item">
+                    <img src="dish1.jpg" alt="Sri Lankan Curry">
+                    <h3>Sri Lankan Curry</h3>
+                    <p>A vibrant curry made with chicken or vegetables, infused with Sri Lanka’s signature spices.</p>
+                </div>
+                <div class="dish-item">
+                    <img src="dish2.jpg" alt="Kottu Roti">
+                    <h3>Kottu Roti</h3>
+                    <p>A popular street food made from chopped flatbread stir-fried with vegetables, meats, and spices.</p>
+                </div>
+                <div class="dish-item">
+                    <img src="dish3.jpg" alt="Hoppers">
+                    <h3>Hoppers</h3>
+                    <p>Traditional bowl-shaped pancakes, served with sambol and curry.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Form Section -->
+        <section class="booking-form-container">
+            <h2>Book Your Dining Experience</h2>
+            <form action="submit_dining_booking.php" method="post">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number *</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="reservation_date">Reservation Date *</label>
+                <input type="date" id="reservation_date" name="reservation_date" required>
+
+                <label for="time">Reservation Time *</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="restaurant">Select Restaurant *</label>
+                <select id="restaurant" name="restaurant" required>
+                    <option value="" selected>Please select</option>
+                    <option value="Golf Course Grill">The Golf Course Grill</option>
+                    <option value="Green Room">The Green Room</option>
+                    <option value="Hole Café">Hole Café</option>
+                </select>
+
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hole Golf Resort. All rights reserved.</p>
+        <p>For inquiries, email us at <a href="mailto:info@holegolfresort.com">info@holegolfresort.com</a></p>
+    </footer>
+</body>
+</html>

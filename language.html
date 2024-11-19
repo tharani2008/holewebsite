@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Basic styles for the navigation bar */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        .language-select {
+            float: right; /* Align the dropdown to the right */
+            margin: 12px 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="instructors.html">facilities</a>
+        <a href="classes.html">packages</a>
+        <a href="timetable.html">Contact us</a>
+
+        <div class="language-select">
+            <label for="languages">Select Language:</label>
+            <select id="languages" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="si">Sinhala</option>
+                <option value="ta">Tamil</option>
+                <!-- Add more languages as needed -->
+            </select>
+        </div>
+    </nav>
+
+    <script>
+        function changeLanguage() {
+            const selectedLanguage = document.getElementById('languages').value;
+            // You can add functionality here to change the language
+            alert('Language changed to: ' + selectedLanguage);
+            // Here you could also redirect or load language-specific content
+        }
+    </script>
+</body>
+</html>

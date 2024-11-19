@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hole Golf Resort - Dining</title>
+    <style>
+        /* Global Styles */
+        body, h1, h2, h3, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        body {
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(145deg, #222, #444);
+            color: #fff;
+            position: relative;
+        }
+
+         .navigationbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .navigationbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigationbar ul li a {
+            color: black;
+            font-family: 'Montserrat', sans-serif; /* Elegant sans-serif font for navigation */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navigationbar ul li a:hover {
+            color: #4CAF50;
+        }
+
+       
+
+		 /* Dropdown Menu Styling */
+        .dropdown {
+            display: none;
+            position: absolute;
+        
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown a:hover {
+            background-color: #f2f2f2;
+            color: #4CAF50;
+			display: block;
+        }
+
+        .navigationbar ul li:hover .dropdown {
+            display: block;
+        }
+
+		 /* Search Bar Styling */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #666;
+            border-radius: 5px;
+        }
+        .search-bar input {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .search-bar button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #3e8e41;
+        } 
+        /* Hero Section Styling */
+        .hero {
+            background: url("../../Pictures/Screenshots/vg g.png") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 60px;
+            height: 400px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+			color: white
+        }
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Dining Options Section */
+        .dining-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .dining-card {
+            background-color: #fff;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .dining-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .dining-card h3 {
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+
+        .dining-card p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+
+        .dining-card .price {
+            font-size: 1.2em;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .dining-card .book-now-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .dining-card .book-now-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Sri Lankan Dishes Section */
+        .sri-lankan-dishes {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .sri-lankan-dishes h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .dish-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .dish-item {
+            width: 280px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .dish-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .dish-item h3 {
+            font-size: 1.6em;
+            margin: 15px 0;
+        }
+
+        .dish-item p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            padding: 0 15px;
+        }
+
+        		
+		.hero h2{top:200px;}
+		.hero p{ position:relative;
+			top:200px;}
+		
+		.social-section {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the content horizontally */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Ensures text is centered */
+}
+
+.social-section p {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #4CAF50;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.social-link img:hover {
+    background-color: #4CAF50;
+    border-color: #006666;
+}
+		.search-bar {
+            position: absolute;
+            right: 80px;
+        }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 17px;
+            z-index: 10;
+        }
+        .navigationbar {
+            padding-left: 50px;
+        }
+
+		
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background-color: #4CAF50;
+            color: whitesmoke;
+        }
+        footer a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigationbar">
+            <div class="logo">
+                <img src="copy.png" width="42px" alt="Hole Golf Resort Logo">
+            </div>
+            <ul>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="about.html">Facilities</a>
+                    <div class="dropdown">
+                        <a href="accommadations.html">Accommodations</a>
+                        <a href="dining.html">Dining</a>
+                    </div>
+                </li>
+                <li><a href="packages.html">Packages</a>
+				
+				<div class="dropdown">
+					<a href="package1.html">Five Rounds Package</a>
+                    <a href="package2.html">Triple Tee Package</a>
+                    <a href="package3.html">Getway Break Package</a>
+                    <a href="package4.html">Family Getaway Package</a>
+                    <a href="package5.html">Corporate Retreat Package</a>
+                    <a href="package6.html">Event Hosting Package</a>
+					</div>
+				
+				</li>
+                <li><a href="us.html">About Us</a></li>
+                <li><a href="srilanka.html">Sri Lanka</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+             
+            </ul>
+			  <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Dining Experience at Hole Golf Resort</h2>
+            <p>Enjoy delicious meals from world-class restaurants and savor the flavors of Sri Lanka.</p>
+        </section>
+
+        <!-- Dining Options Section -->
+        <section class="dining-container">
+            <div class="dining-card">
+                <img src="07-10-2020-Heritage-3.jpg" alt="Golf Course Grill">
+                <h3>The Golf Course Grill</h3>
+                <p>A perfect spot to enjoy a hearty meal with a view of the golf course.</p>
+                <p class="price">$40 per person</p>
+				
+				<a href="dining2.html">
+            <button class="book-now-btn">Reserve a Table</button>
+        </a>
+               
+            </div>
+            <div class="dining-card">
+                <img src="2-191.jpg" alt="The Green Room">
+                <h3>The Green Room</h3>
+                <p>A sophisticated dining experience with a selection of gourmet dishes.</p>
+                <p class="price">$50 per person</p>
+				
+				<a href="dining2.html">
+            <button class="book-now-btn">Reserve a Table</button>
+        </a>
+                
+            </div>
+            <div class="dining-card">
+                <img src="Coffee-shop-1536x1024.jpg" alt="Hole Café">
+                <h3>Hole Café</h3>
+                <p>A cozy café serving freshly brewed coffee, pastries, and light snacks.</p>
+                <p class="price">$20 per person</p>
+                
+				<a href="dining2.html">
+            <button class="book-now-btn">Reserve a Table</button>
+        </a>
+			
+            </div>
+        </section>
+
+        <!-- Sri Lankan Dishes Section -->
+        <section class="sri-lankan-dishes">
+            <h2>Sri Lankan Culinary Delights</h2>
+            <p>Indulge in some of Sri Lanka's most famous and flavorful dishes, made with fresh local ingredients. Experience a blend of spices and flavors that reflect the island's rich culinary heritage.</p>
+            <div class="dish-list">
+                <div class="dish-item">
+                    <img src="OIP (16).jpg" alt="Sri Lankan Curry">
+                    <h3>Sri Lankan Curry</h3>
+                    <p>A vibrant curry made with chicken or vegetables, infused with Sri Lanka’s signature spices.</p>
+                </div>
+                <div class="dish-item">
+                    <img src='shutterstock_1050903170.avif' alt="Kottu Roti">
+                    <h3>Kottu Roti</h3>
+                    <p>A popular street food made from chopped flatbread stir-fried with vegetables, meats, and spices.</p>
+                </div>
+                <div class="dish-item">
+                    <img src="R (10).jpg" alt="Hoppers">
+                    <h3>Hoppers</h3>
+                    <p>Traditional bowl-shaped pancakes, served with sambol and curry.</p>
+                </div>
+            </div>
+        </section>
+		<div class="social-section">
+    <p>We're social too...</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/sl_golfresort/" target="_blank" class="social-link">
+            <img src="OIP (17).jpg" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/holegolfresort" target="_blank" class="social-link">
+            <img src="R.png" alt="Facebook" />
+        </a>
+    </div>
+</div>
+
+
+       
+
+    <footer>
+         <p> &copy; 2024 Hole Golf Resort | <p>For inquiries, email us at <a href="mailto:info@holegolfresort.com">info@holegolfresort.com</a></p></p>
+    </footer>
+</body>
+</html>
+

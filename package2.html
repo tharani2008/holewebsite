@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple Tee Package - Hole Golf Resort</title>
+    <style>
+        /* Global Styles */
+        body, h1, h2, h3, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        body {
+            background-color: #f5f5f5;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(145deg, #222, #444);
+            color: #fff;
+            position: relative;
+        }
+
+        .navigationbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .navigationbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigationbar ul li a {
+            color: black;
+            font-family: 'Montserrat', sans-serif; /* Elegant sans-serif font for navigation */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navigationbar ul li a:hover {
+            color: #4CAF50;
+        }
+
+       
+
+        .dropdown {
+            position: absolute;
+           
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            display: none;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown a:hover {
+            background-color: #f2f2f2;
+            color: #4CAF50;
+        }
+
+        .navigationbar ul li:hover .dropdown {
+            display: block;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #666;
+            border-radius: 5px;
+            margin-left: auto;
+        }
+        .search-bar input {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .search-bar button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url("04-Spa-0M8A1966-e1497290677506.jpg") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+            padding: 100px 30px;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            position: relative;
+            z-index: 2;
+			color: white;
+        }
+        .hero p {
+            font-size: 1.3em;
+            position: relative;
+            z-index: 2;
+			color: white;
+        }
+
+        .package-details {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .package-details h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        .package-details p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .package-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .package-details ul li {
+            margin: 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .package-details ul li::before {
+            content: '✔';
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+        .cta h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: white;
+            color: #4CAF50;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .cta a:hover {
+            background-color: #45a049;
+            color: white;
+        }
+		.social-section {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the content horizontally */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Ensures text is centered */
+}
+
+.social-section p {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #4CAF50;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.social-link img:hover {
+    background-color: ##4CAF50;
+	border-color: #4CAF50;
+    
+}
+		.search-bar {
+            position: absolute;
+            right: 80px;
+        }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 17px;
+            z-index: 10;
+        }
+        .navigationbar {
+            padding-left: 50px;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background-color: #4CAF50;
+            color:whitesmoke;
+        }
+        footer a {
+            color:white;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigationbar">
+        <div class="logo">
+            <img src="copy.png" width="42px" alt="Hole Golf Resort Logo">
+        </div>
+        <ul>
+            <li><a href="index2.html">Home</a></li>
+            <li>
+                <a href="about.html">Facilities</a>
+                <div class="dropdown">
+                    <a href="accommodations.html">Accommodations</a>
+                    <a href="dining.html">Dining</a>
+                </div>
+            </li>
+            <li>
+                <a href="packages.html">Packages</a>
+                <div class="dropdown">
+                    <a href="package1.html">Five Rounds Package</a>
+                    <a href="package2.html">Triple Tee Package</a>
+                    <a href="package3.html">Getway Break Package</a>
+                    <a href="package4.html">Family Getaway Package</a>
+					<a href="package5.html">Corporate Retreat Package</a>
+                    <a href="package6.html">Event Hosting Package</a>
+                </div>
+            </li>
+            <li><a href="us.html">About Us</a></li>
+            <li><a href="srilanka.html">Sri Lanka</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Triple Tee Package</h1>
+       <p>The Triple Tee Package delivers three rounds of golf paired with luxury and relaxation for the perfect getaway.</p>
+    </section>
+
+    <section class="package-details">
+        <h2>What's Included:</h2>
+        <p>Discover a world of relaxation and rejuvenation at Hole Golf Resort.</p>
+        <ul>
+			<li>two night stay in a double room with breakfast</li>
+			<li>three 18 hole rounds including one on the famous Sea View course(if available)</li>
+			<li>complimentary buggy hire</li>
+             <li>20% discount for the pro shop</li>
+        </ul>
+    </section>
+
+    <section class="cta">
+        <h2>Enjoy our Triple Tee Package! </h2>
+        <a href="booking.html">Book Now</a>
+    </section>
+	<div class="social-section">
+    <p>We're social too...</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/holegolfresort" target="_blank" class="social-link">
+            <img src="OIP (17).jpg" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/holegolfresort" target="_blank" class="social-link">
+            <img src="R.png" alt="Facebook" />
+        </a>
+    </div>
+</div>
+
+    <footer>
+         <p> &copy; 2024 Hole Golf Resort | <p>For inquiries, email us at <a href="mailto:info@holegolfresort.com">info@holegolfresort.com</a></p></p>
+    </footer>
+</body>
+</html>
+

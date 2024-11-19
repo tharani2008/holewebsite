@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hole Golf Resort - Discover Sri Lanka</title>
+    <style>
+        /* Global Styles */
+        body, h1, h2, h3, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: Constantia, 'Lucida Bright', 'DejaVu Serif', Georgia, 'serif';
+            color: #333;
+        }
+        body {
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+		  .logo img {
+            width: 42px;
+        }
+		
+		  .navigationbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .navigationbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigationbar ul li a {
+            color: black;
+            font-family: 'Montserrat', sans-serif; /* Elegant sans-serif font for navigation */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navigationbar ul li a:hover {
+            color: #4CAF50;
+        }
+
+       
+
+		 /* Dropdown Menu Styling */
+        .dropdown {
+            display: none;
+            position: absolute;
+        
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown a:hover {
+            background-color: #f2f2f2;
+            color: #4CAF50;
+			display: block;
+        }
+
+        .navigationbar ul li:hover .dropdown {
+            display: block;
+        }
+
+		 /* Search Bar Styling */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #666;
+            border-radius: 5px;
+			
+        }
+        .search-bar input {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .search-bar button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #3e8e41;
+        } 
+   
+        /* Hero Section */
+        .hero {
+            background: url("R (5).jpg") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 60px;
+            height: 500px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .hero h2, .hero p {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: white;
+        }
+
+        /* Content Sections */
+        section {
+            margin: 60px 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        section img {
+            width: 80%;
+            height: 600px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #666;
+        }
+		
+		.social-section {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the content horizontally */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Ensures text is centered */
+}
+
+.social-section p {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #4CAF50;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.social-link img:hover {
+    background-color: ##4CAF50;
+	border-color: #4CAF50;
+    
+}
+		.search-bar {
+            position: absolute;
+            right: 80px;
+        }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 17px;
+            z-index: 10;
+        }
+        .navigationbar {
+            padding-left: 50px;
+        }
+
+         /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background-color: #4CAF50;
+            color: whitesmoke;
+        }
+        footer a {
+            color: white;
+        }
+		.hero h2{top:200px;}
+		.hero p{ position:relative;
+			top:200px;}
+		}
+	    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigationbar">
+            <div class="logo">
+                <img src="copy.png" alt="Hole Golf Resort Logo">
+            </div>
+            <ul>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="about.html">Facilities</a>
+				<div class="dropdown">
+					  <a href="accommadations.html">Accomadations</a>
+					  <a href="dining.html">Dining</a>
+					 
+					   
+					</div>
+				</li>
+                <li><a href="packages.html">Packages</a>
+				
+				<div class="dropdown">
+					<a href="package1.html">Five Rounds Package</a>
+                    <a href="package2.html">Triple Tee Package</a>
+                    <a href="package3.html">Getway Break Package</a>
+                    <a href="package4.html">Family Getaway Package</a>
+                    <a href="package5.html">Corporate Retreat Package</a>
+                    <a href="package6.html">Event Hosting Package</a>
+					</div>
+				</li>
+                <li><a href="us.html">About Us</a></li>
+                <li><a href="srilanka.html">Sri Lanka</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Discover Sri Lanka</h2>
+            <p>Explore the culture, beauty, and heritage of Sri Lanka</p>
+        </section>
+
+        <!-- Introduction Section -->
+        <section>
+            <img src="Beautiful-beach-and-lighthouse-in-SriLanka-Asia.webp" alt="Beautiful Beach in Sri Lanka"> 
+            <h2>Why Visit Sri Lanka?</h2>
+            <p>Sri Lanka is a land of contrasts, with stunning beaches, lush green landscapes, and ancient cultural landmarks. Known as the *Pearl of the Indian Ocean*, it offers an unforgettable experience for nature lovers, history enthusiasts, and adventure seekers alike.</p>
+        </section>
+
+        <!-- Top Attractions Section -->
+        <section>
+			<img src="Sigiriya-Fortress-6.jpg" alt="sigiriya rock fortress">
+            
+            <h2>Top Attractions</h2>
+            <p>Explore some of the most popular attractions in Sri Lanka:</p>
+            <ul>
+                <li>Sigiriya Rock Fortress</li>
+                <li>Golden Temple of Dambulla</li>
+                <li>Yala National Park</li>
+                <li>Ella's scenic tea plantations</li>
+                <li>Unawatuna's tranquil beaches</li>
+                <li>Galle Fort, a UNESCO World Heritage Site</li>
+            </ul>
+        </section>
+
+        <!-- Cultural Richness Section -->
+        <section>
+            <img src="abhayagiri-stupa-in-ancient-anuradhapura-kingdom-sri-lanka.jpg" alt="Ancient Temple in Sri Lanka">
+            <h2>Cultural Richness</h2>
+            <p>Sri Lanka's rich cultural heritage spans over 2,500 years, featuring historic temples, colorful festivals, and warm hospitality. Discover traditional crafts, Ayurvedic healing practices, and a cuisine rich in spices and flavors.</p>
+        </section>
+    </main>
+	<div class="social-section">
+    <p>We're social too...</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/sl_golfresort/" target="_blank" class="social-link">
+            <img src="OIP (17).jpg" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61568778455650" target="_blank" class="social-link">
+            <img src="R.png" alt="Facebook" />
+        </a>
+    </div>
+</div>
+
+    <footer>
+        <p> &copy; 2024 Hole Golf Resort | <p>For inquiries, email us at <a href="mailto:info@holegolfresort.com">info@holegolfresort.com</a></p></p>
+    </footer>
+</body>
+</html>
